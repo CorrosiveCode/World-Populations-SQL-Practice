@@ -1,0 +1,27 @@
+SELECT DISTINCT year 
+FROM population_years;
+
+SELECT MAX(population) AS 'Largest population size'
+FROM population_years
+WHERE country = 'Gabon';
+
+SELECT country AS '10 lowest population countries'
+FROM population_years
+WHERE year = 2005
+ORDER BY population
+LIMIT 10;
+
+SELECT DISTINCT country AS 'countries with > 100M in 2010'
+FROM population_years
+WHERE year = 2010
+AND population > 100;
+
+SELECT DISTINCT country AS 'countries having word islands'
+FROM population_years
+WHERE country
+LIKE '%islands%';
+
+SELECT MAX(population) - MIN(population) AS 'Diff in population between 2000 and 2010'
+FROM population_years
+WHERE year between 2000 and 2010
+AND country = 'Indonesia';
